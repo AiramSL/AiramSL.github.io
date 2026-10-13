@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://airamsl.github.io/sitemap.xml
