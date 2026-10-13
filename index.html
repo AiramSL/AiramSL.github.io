@@ -174,6 +174,19 @@ details ol.pubs{margin-top:1rem}
 .film{margin:1.25rem 0 0; max-width:46rem}
 .film video{display:block; width:100%; aspect-ratio:16/9; background:var(--deep); border-radius:6px; border:1px solid var(--line)}
 .film img{display:block; width:100%; height:auto; border-radius:6px; border:1px solid var(--line)}
+.cruises{display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,1fr); gap:1.25rem; align-items:start; margin:1.25rem 0 0}
+.cruises img{display:block; width:100%; max-width:520px; height:auto; border-radius:6px; border:1px solid var(--line)}
+.cruise-list{list-style:none; padding:0; margin:0; display:grid; gap:.55rem}
+.cruise-list li{border-left:3px solid var(--c,var(--accent)); padding:.15rem 0 .15rem .7rem; font-size:.95rem; line-height:1.4}
+.cruise-list b{font-family:var(--f-display); font-weight:600}
+.cruise-list small{display:block; font-family:var(--f-mono); font-size:.74rem; color:var(--muted)}
+.skills{display:grid; grid-template-columns:repeat(auto-fit,minmax(15.5rem,1fr)); gap:1rem}
+.skill{background:var(--surface); border:1px solid var(--line); border-radius:6px; padding:.95rem 1.05rem}
+.skill h3{font-size:1rem; margin-bottom:.55rem; display:flex; gap:.5rem; align-items:center}
+.skill h3 span{font-family:var(--f-mono); font-size:.72rem; color:var(--accent); font-weight:500}
+.tags{display:flex; flex-wrap:wrap; gap:.35rem; margin:0; padding:0; list-style:none}
+.tags li{font-family:var(--f-mono); font-size:.74rem; border:1px solid var(--line); background:var(--surface-2); border-radius:999px; padding:.15rem .6rem; color:var(--fg)}
+@media (max-width:720px){.cruises{grid-template-columns:1fr}}
 .film figcaption{font-family:var(--f-mono); font-size:.76rem; color:var(--muted); margin-top:.5rem}
 
 dl.cv{display:grid; grid-template-columns:9.5rem minmax(0,1fr); gap:.65rem 1.25rem; margin:0}
@@ -207,7 +220,7 @@ footer{font-family:var(--f-mono); font-size:.74rem; color:var(--muted); padding-
     <div class="topbar">
       <span class="mark">Twilight-zone ecology</span>
       <nav aria-label="Sections">
-        <a href="#research">Research</a><a href="#at-sea">At sea</a><a href="#projects">Projects</a><a href="#publications">Publications</a><a href="#team">Team</a><a href="#career">Career</a><a href="#contact">Contact</a>
+        <a href="#research">Research</a><a href="#at-sea">At sea</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#publications">Publications</a><a href="#team">Team</a><a href="#career">Career</a><a href="#contact">Contact</a>
       </nav>
     </div>
     <div class="id">
@@ -254,6 +267,18 @@ footer{font-family:var(--f-mono); font-size:.74rem; color:var(--muted); padding-
     <div>
       <h2>At sea</h2>
       <p>Most of my data start on deck. We deploy the Mesopelagos net from the stern to sample the twilight zone, sort the catch on board and identify every group to species under the microscope. One subsample is kept for taxonomy and another goes to metabolic analyses to estimate respiration and active carbon flux.</p>
+      <h3 class="sub">Where I have worked at sea</h3>
+      <div class="cruises">
+        <a href="cruises-map.png" target="_blank" rel="noopener"><img src="cruises-map.png" width="495" height="380" loading="lazy" alt="Map of oceanographic cruises in the Atlantic Ocean and the Gulf of California: MAFIA, BATHYPELAGIC, TRIATLAS M158, SUMMER, SUMMER M185 and DESAFIO, with sampling stations from the Iberian Peninsula and Canary Islands to the equatorial and South Atlantic"></a>
+        <ul class="cruise-list">
+          <li style="--c:#3b6fd8"><b>MAFIA</b><small>Gulf of California, Mexico</small></li>
+          <li style="--c:#d8433b"><b>BATHYPELAGIC</b><small>Subtropical and tropical Atlantic</small></li>
+          <li style="--c:#e0b23a"><b>TRIATLAS · RV Meteor M158</b><small>Equatorial Atlantic</small></li>
+          <li style="--c:#555"><b>SUMMER</b><small>North-east Atlantic</small></li>
+          <li style="--c:#e08a3a"><b>SUMMER · RV Meteor M185</b><small>North-east Atlantic</small></li>
+          <li style="--c:#3aa84a"><b>DESAFIO</b><small>Canary Current and Iberian margin, four seasons</small></li>
+        </ul>
+      </div>
       <figure class="film">
         <video id="seaVideo" src="at-sea.mp4" poster="at-sea-poster.jpg" controls muted loop playsinline preload="metadata" aria-label="Video of the Mesopelagos net being deployed from a research vessel and of fish samples being sorted and identified on board"></video>
         <figcaption>Mesopelagos net deployment and on-board processing of meso- and bathypelagic fishes.</figcaption>
@@ -267,6 +292,21 @@ footer{font-family:var(--f-mono); font-size:.74rem; color:var(--muted); padding-
         <a href="acoustics.jpg" target="_blank" rel="noopener"><img src="acoustics.jpg" width="2400" height="1557" loading="lazy" alt="Acoustic sampling of the twilight zone: a research vessel with its EK80 echosounder beam and a CTD rosette carrying LADCPs and an AZFP echosounder, with echograms at 18 and 38 kHz showing the daily migration of scattering layers, a full-depth transect at 38 kHz, and day versus night backscatter profiles"></a>
         <figcaption>Listening to the twilight zone: ship and CTD-mounted echosounders reveal the daily migration of the deep scattering layers. Sarmiento-Lezcano et al. (in prep.). Click to enlarge.</figcaption>
       </figure>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="depth"><b>350 m</b>skills</div>
+    <div>
+      <h2>Methods &amp; skills</h2>
+      <div class="skills">
+        <div class="skill"><h3><span>01</span>Fieldwork at sea</h3><ul class="tags"><li>stratified nets (MOCNESS, Mesopelagos)</li><li>CTD operations</li><li>on-board sorting</li><li>micronekton taxonomy</li><li>cruise planning</li></ul></div>
+        <div class="skill"><h3><span>02</span>Acoustics</h3><ul class="tags"><li>EK80 18 &amp; 38 kHz</li><li>AZFP</li><li>LADCP backscatter</li><li>echogram processing</li><li>swimbladder &amp; scattering models</li></ul></div>
+        <div class="skill"><h3><span>03</span>Physiology &amp; carbon flux</h3><ul class="tags"><li>ETS respiration</li><li>active flux</li><li>carbon remineralisation</li><li>seasonal flux budgets</li></ul></div>
+        <div class="skill"><h3><span>04</span>Life history</h3><ul class="tags"><li>otolith ageing</li><li>growth models</li><li>reproductive biology</li><li>otolith morphology</li></ul></div>
+        <div class="skill"><h3><span>05</span>Trophic ecology</h3><ul class="tags"><li>stable isotopes</li><li>trophic position</li><li>diet analysis</li></ul></div>
+        <div class="skill"><h3><span>06</span>Data &amp; leadership</h3><ul class="tags"><li>community &amp; multivariate analysis</li><li>open data (PANGAEA)</li><li>project management (3 projects as PI)</li><li>PhD supervision</li></ul></div>
+      </div>
     </div>
   </section>
 
