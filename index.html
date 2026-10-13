@@ -110,6 +110,9 @@ details ol.pubs{margin-top:1rem}
 .join{margin-top:2rem; background:var(--surface); border:1px solid var(--line); border-left:3px solid var(--pi); border-radius:6px; padding:1rem 1.15rem}
 .join h3{font-size:1.05rem; margin-bottom:.35rem}
 .join p{margin:0}
+.film{margin:1.25rem 0 0; max-width:46rem}
+.film video{display:block; width:100%; aspect-ratio:16/9; background:var(--deep); border-radius:6px; border:1px solid var(--line)}
+.film figcaption{font-family:var(--f-mono); font-size:.76rem; color:var(--muted); margin-top:.5rem}
 
 dl.cv{display:grid; grid-template-columns:9.5rem minmax(0,1fr); gap:.65rem 1.25rem; margin:0}
 dl.cv dt{font-family:var(--f-mono); font-size:.8rem; color:var(--muted); padding-top:.18rem; font-variant-numeric:tabular-nums}
@@ -142,7 +145,7 @@ footer{font-family:var(--f-mono); font-size:.74rem; color:var(--muted); padding-
     <div class="topbar">
       <span class="mark">Twilight-zone ecology</span>
       <nav aria-label="Sections">
-        <a href="#research">Research</a><a href="#projects">Projects</a><a href="#publications">Publications</a><a href="#team">Team</a><a href="#career">Career</a><a href="#contact">Contact</a>
+        <a href="#research">Research</a><a href="#at-sea">At sea</a><a href="#projects">Projects</a><a href="#publications">Publications</a><a href="#team">Team</a><a href="#career">Career</a><a href="#contact">Contact</a>
       </nav>
     </div>
     <div class="id">
@@ -181,6 +184,18 @@ footer{font-family:var(--f-mono); font-size:.74rem; color:var(--muted); padding-
         <div><h3>Active carbon flux</h3><p>Respiration, remineralisation and seasonal active flux by migrant and non-migrant micronekton and gelatinous zooplankton.</p></div>
         <div><h3>Acoustics and vertical structure</h3><p>Interpreting echoes from deep scattering layers and resolving the vertical structure of fish assemblages from the surface to the bathypelagic zone.</p></div>
       </div>
+    </div>
+  </section>
+
+  <section id="at-sea">
+    <div class="depth"><b>300 m</b>at sea</div>
+    <div>
+      <h2>At sea</h2>
+      <p>Most of my data start on deck. We deploy the Mesopelagos net from the stern to sample the twilight zone, sort the catch on board and identify every group to species under the microscope. One subsample is kept for taxonomy and another goes to metabolic analyses to estimate respiration and active carbon flux.</p>
+      <figure class="film">
+        <video id="seaVideo" src="at-sea.mp4" poster="at-sea-poster.jpg" controls muted loop playsinline preload="metadata" aria-label="Video of the Mesopelagos net being deployed from a research vessel and of fish samples being sorted and identified on board"></video>
+        <figcaption>Mesopelagos net deployment and on-board processing of meso- and bathypelagic fishes.</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -373,6 +388,12 @@ footer{font-family:var(--f-mono); font-size:.74rem; color:var(--muted); padding-
     if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(()=>{btn.textContent='Copied';},sel);}else sel();
     setTimeout(()=>{btn.textContent='Copy email';},2000);
   });
+
+  // play the field video only while visible, never for reduced-motion users
+  const sv=document.getElementById('seaVideo');
+  if(sv&&'IntersectionObserver'in window&&!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)){
+    new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)sv.play().catch(()=>{});else sv.pause();}),{threshold:.4}).observe(sv);
+  }
 
   // Echogram behind the hero: scattering layers performing diel vertical migration
   const cv=document.getElementById('echo'), ctx=cv.getContext('2d');
